@@ -47,10 +47,12 @@ Node* insert(Node* root, int key) {
     }
 
     // Insert the new node as a child of the parent node
-    if (key < parent->data)
-        parent->left = newNode;
-    else
-        parent->right = newNode;
+    if (key != parent->data) {
+        if (key < parent->data)
+            parent->left = newNode;
+        else
+            parent->right = newNode;
+    }
 
     return root;
 }
@@ -196,6 +198,9 @@ int main() {
     insert(root, 60);
     insert(root, 80);
     insert(root, 90);
+    insert(root, 100);
+    insert(root, 100);
+    insert(root, 100);
     insert(root, 100);
 
     // Print the BST in different orders
