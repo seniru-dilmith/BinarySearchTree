@@ -47,7 +47,7 @@ Node* insert(Node* root, int key) {
     }
 
     // Insert the new node as a child of the parent node
-    if (key != parent->data) {
+    if (key != parent->data) {  // ensures same key is not added twice
         if (key < parent->data)
             parent->left = newNode;
         else
@@ -223,19 +223,30 @@ int main() {
     else
         cout << "Node with key 40 not found" << endl;
 
+    searchResult = search(root, 500);
+    if (searchResult)
+        cout << "Found node with key 500" << endl;
+    else
+        cout << "Node with key 500 not found" << endl;
+
     // Delete nodes from the BST and print the in-order traversal after each deletion
-    root = deleteNode(root, 20);
-    cout << "Inorder traversal after deleting 20: ";
+    root = deleteNode(root, 70);
+    cout << "Inorder traversal after deleting 70: ";
     inorder(root);
     cout << endl;
 
-    root = deleteNode(root, 30);
-    cout << "Inorder traversal after deleting 30: ";
+    root = deleteNode(root, 80);
+    cout << "Inorder traversal after deleting 80: ";
     inorder(root);
     cout << endl;
 
     root = deleteNode(root, 50);
     cout << "Inorder traversal after deleting 50: ";
+    inorder(root);
+    cout << endl;
+
+    root = deleteNode(root, 500);
+    cout << "Inorder traversal after deleting 500: ";
     inorder(root);
     cout << endl;
 
